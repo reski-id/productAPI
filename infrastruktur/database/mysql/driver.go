@@ -5,6 +5,8 @@ import (
 	"log"
 	"productapi/config"
 
+	productData "productapi/feature/product/data"
+
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -20,5 +22,6 @@ func InitDB(cfg *config.AppConfig) *gorm.DB {
 }
 
 func MigrateData(db *gorm.DB) {
-	db.AutoMigrate()
+	db.AutoMigrate(productData.Product{})
+
 }
