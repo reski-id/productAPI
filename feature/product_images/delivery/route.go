@@ -7,14 +7,15 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 )
 
-func RouteImages(e *echo.Echo, ph domain.ImagesHandler) {
+func RoutePI(e *echo.Echo, ph domain.ProductImgHandler) {
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 		AllowOrigins: []string{"*"},
 		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept, echo.HeaderAuthorization},
 		AllowMethods: []string{echo.GET, echo.POST, echo.PUT, echo.DELETE},
 	}))
-	e.POST("/file", ph.InsertImages())
-	e.PUT("/file/:id", ph.UpdateImages())
-	e.DELETE("/file/:id", ph.DeleteImages())
-	e.GET("/file", ph.GetAllImages())
+	e.POST("/productimages", ph.InsertProductImages())
+	e.PUT("/productimages/:id", ph.UpdateProductImages())
+	e.DELETE("/productimages/:id", ph.DeleteProductImages())
+	e.GET("/productimages", ph.GetAllProductImages())
+	e.GET("/productimages/:id", ph.GetProductImagesID())
 }
