@@ -8,8 +8,8 @@ import (
 
 type Category struct {
 	gorm.Model
-	Name   string `json:"name" form:"name"`
-	Enable bool   `json:"enable" form:"enable"`
+	Name   string `json:"name" form:"name"  validate:"required"`
+	Enable bool   `json:"enable" form:"enable"  validate:"required"`
 }
 
 func (b *Category) ToDomain() domain.Category {

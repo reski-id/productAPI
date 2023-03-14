@@ -8,9 +8,9 @@ import (
 
 type Product struct {
 	gorm.Model
-	Name        string `json:"name" form:"name"`
-	Description string `json:"description" form:"description"`
-	Enable      bool   `json:"enable" form:"enable"`
+	Name        string `json:"name" form:"name"  validate:"required"`
+	Description string `json:"description" form:"description"  validate:"required"`
+	Enable      bool   `json:"enable" form:"enable"  validate:"required"`
 }
 
 func (b *Product) ToDomain() domain.Product {

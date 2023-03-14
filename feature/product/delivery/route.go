@@ -7,7 +7,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 )
 
-func RouteContent(e *echo.Echo, ph domain.ProductHandler) {
+func RouteProduct(e *echo.Echo, ph domain.ProductHandler) {
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 		AllowOrigins: []string{"*"},
 		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept, echo.HeaderAuthorization},

@@ -8,9 +8,9 @@ import (
 
 type Images struct {
 	gorm.Model
-	Name   string `json:"name" form:"name"`
-	File   string `json:"file" form:"file"`
-	Enable bool   `json:"enable" form:"enable"`
+	Name   string `json:"name" form:"name"  validate:"required"`
+	File   string `json:"file" form:"file"  validate:"required"`
+	Enable bool   `json:"enable" form:"enable"  validate:"required"`
 }
 
 func (b *Images) ToDomain() domain.Images {
