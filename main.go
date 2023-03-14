@@ -12,6 +12,8 @@ func main() {
 	cfg := config.GetConfig()
 	db := mysql.InitDB(cfg)
 	mysql.MigrateData(db)
+	mysql.SeedCategoryData(db)
+	mysql.SeedProductData(db)
 	e := echo.New()
 
 	fmt.Println("Running program ....")
