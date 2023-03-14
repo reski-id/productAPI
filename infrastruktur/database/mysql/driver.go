@@ -5,6 +5,8 @@ import (
 	"log"
 	"productapi/config"
 
+	categoryData "productapi/feature/category/data"
+	imagesData "productapi/feature/images/data"
 	productData "productapi/feature/product/data"
 
 	"gorm.io/driver/mysql"
@@ -22,6 +24,6 @@ func InitDB(cfg *config.AppConfig) *gorm.DB {
 }
 
 func MigrateData(db *gorm.DB) {
-	db.AutoMigrate(productData.Product{})
+	db.AutoMigrate(productData.Product{}, imagesData.Images{}, categoryData.Category{})
 
 }
